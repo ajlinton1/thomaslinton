@@ -1,0 +1,52 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Art of Thomas C. Linton</title>
+
+    <style type="text/css">
+        .style1 {
+            font-family: "Courier New";
+            font-size: xx-small;
+        }
+
+        #Image1 {
+            position: absolute;
+            height: 80%;
+        }
+
+        #links {
+            position: absolute;
+            bottom: 50px;
+        }
+    </style>
+
+    <script type="text/javascript"">
+
+        function nextPicture() {
+            document.URL = "../NextPicture";
+        }
+
+    </script>
+</head>
+<body>
+    @{
+        String pictureUrl = (String)ViewData["PictureUrl"];
+    }
+    <div>
+        <img class="img1" alt="Image1" id="Image1" src='@Url.Content(pictureUrl)'  onclick="nextPicture()"/>
+    </div>
+    <div id="links">
+        @Html.ActionLink("Next", "NextPicture")  
+        @Html.ActionLink("Previous", "PreviousPicture")
+        @Html.ActionLink("Thumbnails", "Thumbnails")
+     
+    <div class="style1">Copyright Thomas C. Linton</div>
+    </div>
+</body>
+</html>
